@@ -80,4 +80,12 @@
             color: #6b6b6b;
         }
     }
+    #back-arrow {
+        color: white;
+        font-size: 30px;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        z-index: 99;
+    }
 }

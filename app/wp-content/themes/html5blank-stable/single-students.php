@@ -27,6 +27,10 @@ $achievment_post;
 $achiev_count = 0;
 $achievment_type;
 
+if( wp_get_referer() ) {
+    echo '<a id="back-arrow" href="' . wp_get_referer() . '" ><i class="fas fa-arrow-left"></i></a>';
+}
+
 ?>
 
 <main role="main">
@@ -73,6 +77,7 @@ $achievment_type;
                     $achievment_post .= '<h3>'.$achievment->post_title. '<span>'. $achievment->post_date.'</span></h3>';
                 }
                 $achievment_post .=  '<div class"achiev-desc">' . $achievment->post_content .'</div>';
+                /*
                 $achievment_post .= '<div class="share"><a href="http://www.facebook.com/dialog/feed?  
                 app_id=2386929224877466&  
                 link=http://developers.facebook.com/docs/reference/dialogs/&
@@ -83,6 +88,7 @@ $achievment_type;
                 quote=Facebook%20Dialogs%20are%20so%20easy!&
                 redirect_uri=http://www.mixtadrama.com"
                 target="_blank" >Share <i class="fa fa-facebook-f"></i></a></div>';
+                */
                 $achievment_post .= '</div>'; //.post-wrap
             }
             echo $achievment_post;

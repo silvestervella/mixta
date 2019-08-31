@@ -266,4 +266,23 @@ function mixtadrama_default_comments_on( $data ) {
 }
 add_filter( 'wp_insert_post_data', 'mixtadrama_default_comments_on' );
 
+function mixtadrama_display_login() {
+
+$current_user = wp_get_current_user();
+
+if ( current_user_can( 'student' ) ) {
+
+    $header_login = '';
+    $header_login .= '<div id="header-login">';
+    $header_login .= '<a href="https://mixtadrama.com/students/'. esc_html( $current_user->user_login ) .'">My Profile</a>' ;
+    $header_login .= '</div>';
+ 
+    return $header_login;
+} else {
+    return;
+}
+
+}
+add_shortcode( 'header_login', 'mixtadrama_display_login' );
+
 ?>

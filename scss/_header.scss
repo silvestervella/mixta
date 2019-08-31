@@ -5,4 +5,13 @@
     #logo {
         max-width: 150px
     }
+    #header-login-outer {
+        position: absolute;
+        color: white;
+        #header-login {
+            position: absolute;
+            right: 100px;
+            top: 33px;
+        }
+    }
 }
