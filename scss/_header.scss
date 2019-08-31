@@ -14,4 +14,24 @@
             top: 33px;
         }
     }
+    .elementor-column {
+        position: absolute;
+        &:first-of-type {
+            
+        }
+        &:last-of-type {
+            right: 0;
+        }
+    }
 }
+
+@media only screen and (max-width: 767px) {
+    #header {
+        #header-login-outer {
+            #header-login {
+                right: 70px;
+                top: 21px;
+            }
+        }
+    }
+  }

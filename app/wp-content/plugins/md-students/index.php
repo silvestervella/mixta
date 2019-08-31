@@ -269,17 +269,29 @@ add_filter( 'wp_insert_post_data', 'mixtadrama_default_comments_on' );
 function mixtadrama_display_login() {
 
 $current_user = wp_get_current_user();
+$header_login = '';
 
 if ( current_user_can( 'student' ) ) {
 
-    $header_login = '';
     $header_login .= '<div id="header-login">';
-    $header_login .= '<a href="https://mixtadrama.com/students/'. esc_html( $current_user->user_login ) .'">My Profile</a>' ;
+    $header_login .= '<a href="https://mixtadrama.com/students/'. esc_html( $current_user->user_login ) .'">My Profile</a> | <a class="logout-link" href="'.wp_logout_url(get_permalink()).'">Logout</a>';
     $header_login .= '</div>';
- 
     return $header_login;
+
+} else if (is_user_logged_in()) {
+
+    $header_login .= '<div id="header-login">';
+    $header_login .= '<a href=" class="logout-link" '.wp_logout_url(get_permalink()).'">Logout</a>' ;
+    $header_login .= '</div>';
+    return $header_login;
+
 } else {
-    return;
+
+    $header_login .= '<div id="header-login">';
+    $header_login .= '<a href="https://mixtadrama.com/wp-login.php?loginSocial=facebook" data-plugin="nsl" data-action="connect" data-redirect="current" data-provider="facebook" data-popupwidth="475" data-popupheight="175">login / register</a>';
+    $header_login .= '</div>';
+    return $header_login;
+
 }
 
 }
