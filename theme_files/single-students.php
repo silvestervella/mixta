@@ -23,7 +23,6 @@ $achievments = get_posts(
     )
 );
 
-
 $achievment_post;
 $achiev_count = 0;
 $achievment_type;
