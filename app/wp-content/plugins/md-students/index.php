@@ -110,6 +110,7 @@ function mixtadrama_students() {
     };
 
 }
+
 add_action( 'init', 'mixtadrama_students' );
 
 function mixtadrama_force_type_private($post)
