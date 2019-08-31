@@ -25,7 +25,7 @@ function mixtadrama_students() {
             'singular_name' => __( 'Achievement' )
         ),
         'public' => false,  // it's not public, it shouldn't have it's own permalink, and so on
-        'publicly_queryable' => true,  // you should be able to query it
+        'publicly_queryable' => false,  // you shouldn't be able to query it
         'show_ui' => true,  // you should be able to edit it in wp-admin
         'exclude_from_search' => false,  // you should exclude it from search results
         'show_in_nav_products' => false,  // you shouldn't be able to add it to products
@@ -112,14 +112,6 @@ function mixtadrama_students() {
 }
 
 add_action( 'init', 'mixtadrama_students' );
-
-function mixtadrama_force_type_private($post)
-{
-    if ($post['post_type'] == 'achievements')
-    $post['post_status'] = 'private';
-    return $post;
-}
-add_filter('wp_insert_post_data', 'mixtadrama_force_type_private');
 
 add_action( 'delete_user', 'mixtadrama_delete_user_term' );
 
