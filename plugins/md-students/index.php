@@ -113,7 +113,6 @@ function mixtadrama_students() {
 
 add_action( 'init', 'mixtadrama_students' );
 
-
 add_action( 'delete_user', 'mixtadrama_delete_user_term' );
 
 function mixtadrama_delete_user_term( $user_id ) {
