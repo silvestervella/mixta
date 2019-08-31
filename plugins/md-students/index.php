@@ -113,14 +113,6 @@ function mixtadrama_students() {
 
 add_action( 'init', 'mixtadrama_students' );
 
-function mixtadrama_force_type_private($post)
-{
-    if ($post['post_type'] == 'achievements')
-    $post['post_status'] = 'private';
-    return $post;
-}
-add_filter('wp_insert_post_data', 'mixtadrama_force_type_private');
-
 
 add_action( 'delete_user', 'mixtadrama_delete_user_term' );
 
