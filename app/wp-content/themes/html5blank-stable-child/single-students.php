@@ -57,7 +57,7 @@ $achievment_type;
                 $types = wp_get_post_terms( $achievment->ID , 'type' );
                 $gravatar = get_avatar($achievment->post_author , 45);
                 $achievment_post .= '<div class="post-wrap">';
-                $achievment_post .= '<div class="author-img">'.$gravatar.'</div>';
+                // $achievment_post .= '<div class="author-img">'.$gravatar.'</div>';   avatar for post author not student
                 if ($types) {
                     foreach ($types as $type_name) {
                         $achievment_type .= $type_name->name . ' ';
