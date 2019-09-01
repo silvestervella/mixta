@@ -89,3 +89,28 @@
         z-index: 99;
     }
 }
+
+@media only screen and (max-width: 767px) {
+    .single-students {
+        .author-details {
+            position: relative;
+            h2 {
+                position: absolute;
+                left: 50%;
+                transform: translate(-50% , -220px);
+                color: white;
+                font-size: 30px;
+                .name {
+                    display: inline-block;
+                }
+                .level {
+                    margin-left: 0px;
+                }
+                .achiev-count {
+                    font-size: 18px;
+                    padding-top: 0px;
+                }
+            }
+        }
+    }
+  }
