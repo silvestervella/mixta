@@ -525,4 +525,41 @@ function mixtadrama_limit_username_alphanumerics ($errors, $name) {
   return $errors;
 }
 
+function my_login_page_remove_back_to_link() { 
+    $custom_logo_id = get_theme_mod( 'custom_logo' );
+    $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+    ?>
+    <style type="text/css">
+        body.login {
+            background: #f4eee8
+        }
+        body.login h1 a {
+            background-image: url(<?php echo $image[0] ?>);
+            background-size: 100px;
+        }
+        body.login div#login p#backtoblog {
+          display: none;
+        }
+        body.wp-core-ui .submit input , body.wp-core-ui .submit input:hover , body.wp-core-ui .submit input:focus {
+            background: #cb9c51;
+            color: black;
+            border: 0;
+            box-shadow: none;
+            text-decoration: none;
+            text-shadow: none;
+        }
+        div.nsl-container .nsl-button-facebook {
+            background: #cb9c51 !important;
+        }
+        div.nsl-container .nsl-button-facebook span {
+            color: black;
+        }
+        div.nsl-container .nsl-button-facebook span svg path {
+            fill: black
+        }
+    </style>
+<?php }
+//This loads the function above on the login page
+add_action( 'login_enqueue_scripts', 'my_login_page_remove_back_to_link' );
+
 ?>
