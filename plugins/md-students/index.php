@@ -141,6 +141,7 @@ function mixtadrama_delete_user_term( $user_id ) {
           );
     $students = get_posts(
         array(
+            'name' => $student->user_login, 
             'post_type' => 'students',
             'numberposts' => -1
         )
@@ -281,7 +282,7 @@ if ( current_user_can( 'student' ) ) {
 } else if (is_user_logged_in()) {
 
     $header_login .= '<div id="header-login">';
-    $header_login .= '<a href=" class="logout-link" '.wp_logout_url(get_permalink()).'">Logout</a>' ;
+    $header_login .= '<a href="'.wp_logout_url(get_permalink()).'" class="logout-link" >Logout</a>' ;
     $header_login .= '</div>';
     return $header_login;
 

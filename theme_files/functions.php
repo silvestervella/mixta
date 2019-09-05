@@ -525,7 +525,7 @@ function mixtadrama_limit_username_alphanumerics ($errors, $name) {
   return $errors;
 }
 
-function my_login_page_remove_back_to_link() { 
+function mixtadrama_my_login_page_remove_back_to_link() { 
     $custom_logo_id = get_theme_mod( 'custom_logo' );
     $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
     ?>
@@ -560,6 +560,31 @@ function my_login_page_remove_back_to_link() {
     </style>
 <?php }
 //This loads the function above on the login page
-add_action( 'login_enqueue_scripts', 'my_login_page_remove_back_to_link' );
+add_action( 'login_enqueue_scripts', 'mixtadrama_my_login_page_remove_back_to_link' );
 
+
+// change logo link
+function mmixtadrama_login_url() {  
+    return home_url(); 
+}
+add_filter( 'login_headerurl', 'mixtadrama_login_url' );
+
+
+
+// Dash screen remove options and help buttons
+function mixtadrama_remove_screen_options(){
+   return current_user_can( 'manage_options' );
+}
+add_filter('screen_options_show_screen', 'mixtadrama_remove_screen_options');
+
+function mixtadrama_remove_help_tabs( $old_help, $screen_id, $screen ){
+
+    $user = wp_get_current_user();
+
+    if(!current_user_can( 'manage_options' ) || $user && isset($user->user_login) && 'claytonpace' == $user->user_login) {
+        $screen->remove_help_tabs();
+        return $old_help;
+    }
+}
+add_filter( 'contextual_help', 'mixtadrama_remove_help_tabs', 999, 3 );
 ?>

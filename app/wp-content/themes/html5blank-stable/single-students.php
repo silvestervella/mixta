@@ -23,6 +23,7 @@ $achievments = get_posts(
     )
 );
 
+
 $achievment_post;
 $achiev_count = 0;
 $achievment_type;
@@ -53,6 +54,9 @@ if( wp_get_referer() ) {
 
             echo '<span>'.$achiev_count.'</span>';
             echo '</div>'; // .achiev-count
+            if (is_user_logged_in()) {
+                echo '<div id="edit-profile"><a href="https://mixtadrama.com/wp-admin/profile.php">Edit Profile</a> - <a href="'.wp_logout_url(get_permalink()).'">Logout</a></div>';               
+            }
 
         echo $stars ?></h2>
             <?php echo get_avatar($user->ID , 130) ?>
@@ -88,7 +92,31 @@ if( wp_get_referer() ) {
                 quote=Facebook%20Dialogs%20are%20so%20easy!&
                 redirect_uri=http://www.mixtadrama.com"
                 target="_blank" >Share <i class="fa fa-facebook-f"></i></a></div>';
-                */
+              
+                
+                  
+                // get comments
+                $achievment_post .= '<ol class="commentlist">';
+                  //Gather comments for a specific page/post 
+                  $comments = get_comments(array(
+                    'post_id' => $achievment->ID,
+                     'status' => 'approve'
+                  ));
+                  $achievment_post .= wp_list_comments(array(
+                    'per_page' => 10, // Allow comment pagination
+                     'reverse_top_level' => false //Show the latest comments at the top of the list
+                   ), $comments);
+                   
+                  $achievment_post .= '</ol>';
+                
+                // comment box
+                
+                $achievment_post .= comment_form($args , $achievment->ID);
+                
+                
+                
+                  */
+                
                 $achievment_post .= '</div>'; //.post-wrap
             }
             echo $achievment_post;
