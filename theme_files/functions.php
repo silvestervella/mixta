@@ -587,4 +587,10 @@ function mixtadrama_remove_help_tabs( $old_help, $screen_id, $screen ){
     }
 }
 add_filter( 'contextual_help', 'mixtadrama_remove_help_tabs', 999, 3 );
+
+
+add_action( 'user_profile_update_errors', 'mixtadrama_remove_new_user_email_error', 10, 3 );
+function mixtadrama_remove_new_user_email_error( $errors, $update, $user ) {
+        unset( $errors->errors['empty_email'] );
+}
 ?>
