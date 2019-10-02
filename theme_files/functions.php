@@ -598,8 +598,8 @@ function mixtadrama_remove_new_user_email_error( $errors, $update, $user ) {
 
 
 // Redirect wp-login url to homepage
-add_action(  'login_init', 'user_registration_login_init'  );
-function user_registration_login_init () {
+add_action(  'login_init', 'mixtadrama_user_registration_login_init'  );
+function mixtadrama_user_registration_login_init () {
      if( ! is_user_logged_in() ) {
         wp_redirect( '/' );
         exit;
