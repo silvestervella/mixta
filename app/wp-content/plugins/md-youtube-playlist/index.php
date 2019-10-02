@@ -8,7 +8,7 @@ Version: 1.0
 */
 
 function mixtadrama_youtube_playlist() {
-    $embed = "<iframe id='testi-vids' src='https://www.youtube.com/embed/videoseries?list=UUwMJH-A_xa-T8kAvUZHiMhg' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+    $embed = "<iframe id='testi-vids' width='560' src='https://www.youtube.com/embed/videoseries?list=PL5Bhvp4tH6VHG5_cyurcecI9UQYhiwJgU' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
     return $embed;
 }
 	

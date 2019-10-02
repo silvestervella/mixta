@@ -593,4 +593,16 @@ add_action( 'user_profile_update_errors', 'mixtadrama_remove_new_user_email_erro
 function mixtadrama_remove_new_user_email_error( $errors, $update, $user ) {
         unset( $errors->errors['empty_email'] );
 }
+
+
+
+
+// Redirect wp-login url to homepage
+add_action(  'login_init', 'user_registration_login_init'  );
+function user_registration_login_init () {
+     if( ! is_user_logged_in() ) {
+        wp_redirect( '/' );
+        exit;
+      }
+}
 ?>
